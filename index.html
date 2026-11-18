@@ -326,7 +326,7 @@ function notify(){if(!S.cfg.notif||!('Notification'in window)||Notification.perm
  const ti='Cobros · resumen del día',o={body:L.join('\n'),icon:IC.l},n=()=>new Notification(ti,o);
  navigator.serviceWorker&&navigator.serviceWorker.getRegistration?navigator.serviceWorker.getRegistration().then(g=>g?g.showNotification(ti,o):n()).catch(n):n()}
 /* Firebase (avisos con la app cerrada). Pega aquí la configuración de tu proyecto (Configuración del proyecto > Tus apps > Web) y la clave VAPID. */
-const FBC={apiKey:'',authDomain:'',projectId:'',messagingSenderId:'',appId:'',vapidKey:''};
+const FBC={apiKey:'AIzaSyDXceVNwoObyQ27TGIM0YaGVTZqsqLKu8E',authDomain:'cobros-c57e6.firebaseapp.com',projectId:'cobros-c57e6',messagingSenderId:'639605481118',appId:'1:639605481118:web:9ccdd4f66e038fc7bea58f',vapidKey:'BPZROErHfM3Td4CITOEbpbty_cfEbfYC7V5kQu0jZwR6_bxLG71qbIlJTu0gnrFKDmUk2mPo6OCTPSla3VS5D7M'};
 let FB=null,fbT=0;
 async function fbLoad(){if(FB)return FB;const B='https://www.gstatic.com/firebasejs/10.12.2/',L=u=>new Promise((ok,ko)=>{const e=document.createElement('script');e.src=B+u;e.onload=ok;e.onerror=ko;document.head.appendChild(e)});
  await L('firebase-app-compat.js');await L('firebase-auth-compat.js');await L('firebase-firestore-compat.js');await L('firebase-messaging-compat.js');
