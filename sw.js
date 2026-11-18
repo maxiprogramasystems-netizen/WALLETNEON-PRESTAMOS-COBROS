@@ -1,6 +1,6 @@
 /* Sube el número de V cuando publiques una versión nueva.
    La app descarga la versión nueva sola cuando hay internet y avisa al cliente para que la acepte con un toque. */
-const V='cartera-v24';
+const V='cartera-v28';
 const REQ=["./","index.html"];
 const OPT=["manifest.webmanifest","favicon.ico","icon-32.png","icon-48.png","icon-192.png","icon-512.png","icon-maskable-192.png","icon-maskable-512.png","apple-touch-icon.png"];
 const get=u=>fetch(new Request(u,{cache:'reload'}));
@@ -14,3 +14,8 @@ self.addEventListener('fetch',e=>{const q=e.request;if(q.method!=='GET'||new URL
   e.respondWith(caches.open(V).then(async c=>{const hit=await c.match(q,{ignoreSearch:true});if(hit)return hit;
     try{const r=await fetch(q);if(r&&r.status===200)c.put(q,r.clone());return r}
     catch(err){if(q.mode==='navigate'){const i=await c.match('index.html');if(i)return i}throw err}}))});
+/* Avisos push (Firebase Cloud Messaging): el servidor envía {title, body} y aquí se muestran aunque la app esté cerrada */
+self.addEventListener('push',e=>{let d={};try{d=e.data.json()}catch(_){}const x=d.data||d;
+  e.waitUntil(self.registration.showNotification(x.title||'Cobros',{body:x.body||'',icon:'icon-192.png',badge:'icon-48.png',tag:'cobros',renotify:true}))});
+self.addEventListener('notificationclick',e=>{e.notification.close();
+  e.waitUntil(clients.matchAll({type:'window',includeUncontrolled:true}).then(l=>l.length?l[0].focus():clients.openWindow('./')))});
