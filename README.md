@@ -7,6 +7,7 @@ Aplicación web para controlar una cartera de préstamos: clientes, intereses, c
 - Clientes con notas y observaciones, búsqueda y edición. Al guardar un cliente nuevo la app ofrece crear su préstamo, y cada cliente tiene el atajo «Crear préstamo».
 - Cada préstamo es independiente: se elige el cliente de forma explícita (sin cliente preseleccionado por defecto), lleva su propio código (P-001, P-002…), sus cuotas y sus pagos, y se confirma antes de crearlo.
 - Préstamos con interés simple o sobre saldo, mora, observaciones y filtros por estado.
+- Buscador en la parte superior de Préstamos (nombre, código o documento; ignora tildes y mayúsculas) con filtros de un toque, y buscador dentro de la lista de clientes de «Nuevo préstamo».
 - La lista de Préstamos muestra por defecto solo los vigentes (activos y en mora). Los finalizados salen de esa lista pero siguen guardados: se ven en el filtro «Finalizados» (un renglón por cliente, con los códigos de sus préstamos) o en «Todos». Al buscar por nombre o código también aparecen.
 - Cuotas en verde cuando se pagan, estado "Abonó" en pagos parciales y "Finalizado" al saldar la deuda.
 - Capital: aportes, retiros, dinero disponible para prestar, capital en la calle y ganancias.
